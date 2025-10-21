@@ -1,6 +1,6 @@
   - name: Install maven
     ansible.builtin.dnf:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
     loop:
     - maven

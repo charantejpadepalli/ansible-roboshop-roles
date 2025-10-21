@@ -19,19 +19,19 @@
     path: /usr/share/nginx/html/
     state: directory
 
-- name: download frontned Application
+- name: download frontend Application
   ansible.builtin.get_url:
-    url: https://roboshop-artifacts.s3.amazonaws.com/frontned-v3.zip
-    dest: /tmp/frontned.zip
+    url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+    dest: /tmp/frontend.zip
   
-- name: extract frontned Application
-  ansible.builtin.unarchieve:
-    src: /tmp/frontned.zip
+- name: extract frontend Application
+  ansible.builtin.unarchive:
+    src: /tmp/frontend.zip
     dest: /usr/share/nginx/html/
     remote_src: yes
 
 - name: delete default nginx configure
-  ansible.builtin.dnf:
+  ansible.builtin.file:
     state: absent
     path: /etc/nginx/nginx.conf
 
